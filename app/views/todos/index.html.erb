@@ -7,27 +7,29 @@
   <div class="row">
     <h1>Current Tasks</h1>
 
-    <table id="task_list">
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Finished?</th>
-          <th></th>
-          <th></th>
-          <th></th>
-        </tr>
-      </thead>
-
-      <tbody>
-        <% @todos.each do |todo| %>
+    <% unless @todos.empty? %>
+      <table id="task_list">
+        <thead>
           <tr>
-            <td width="250px"><%= todo.name %></td>
-            <td width="150px"><%= todo.finished %></td>
-            <td><%= link_to 'Complete', todo, method: :get, class: "btn btn-success" %></td>
-            <td><%= link_to 'Destroy', todo, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
+            <th>Name</th>
+            <th>Finished?</th>
+            <th></th>
+            <th></th>
+            <th></th>
           </tr>
-        <% end %>
-      </tbody>
-    </table>
+        </thead>
+
+        <tbody>
+          <% @todos.each do |todo| %>
+            <tr>
+              <td width="250px"><%= todo.name %></td>
+              <td width="150px"><%= todo.finished %></td>
+              <td><%= link_to 'Complete', todo, method: :get, class: "btn btn-success" %></td>
+              <td><%= link_to 'Destroy', todo, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% end %>
   </div>
 </div>
