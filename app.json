@@ -2,5 +2,9 @@
   "name": "rails-todo",
   "description": "Rails Todo",
   "repository": "https://github.com/kkabetani/rails-todo",
-  "keywords": ["rails"]
+  "keywords": ["rails"],
+  "scripts": {
+    "postdeploy": "bundle exec rake db:migrate"
+  }
+
 }
